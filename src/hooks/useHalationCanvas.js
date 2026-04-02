@@ -7,7 +7,13 @@ const MAX_CANVAS_WIDTH = 900;
  * Gerencia o ciclo de vida da imagem e do canvas:
  * carregamento, redimensionamento proporcional e redesenho com efeito.
  */
-export function useHalationCanvas({ threshold, blur, intensity, color, vignette }) {
+export function useHalationCanvas({
+  threshold,
+  blur,
+  intensity,
+  color,
+  vignette,
+}) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [dragging, setDragging] = useState(false);
 
@@ -79,12 +85,27 @@ export function useHalationCanvas({ threshold, blur, intensity, color, vignette 
   }, []);
 
   const handleDownload = useCallback(() => {
-    if (!canvasRef.current) return;
+    if (!imgRef.current || !canvasRef.current) return;
+
+    const exportCanvas = document.createElement("canvas");
+    exportCanvas.width = imgRef.current.naturalWidth;
+    exportCanvas.height = imgRef.current.naturalHeight;
+
+    applyHalation(
+      exportCanvas,
+      imgRef.current,
+      threshold,
+      blur * (imgRef.current.naturalWidth / canvasRef.current.width),
+      intensity,
+      color,
+      vignette,
+    );
+
     const a = document.createElement("a");
-    a.download = "halation.jpg";
-    a.href = canvasRef.current.toDataURL("image/jpeg", 0.95);
+    a.download = "halation.png";
+    a.href = exportCanvas.toDataURL("image/png");
     a.click();
-  }, []);
+  }, [threshold, blur, intensity, color, vignette]);
 
   return {
     canvasRef,
