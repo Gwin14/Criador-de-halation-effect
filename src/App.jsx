@@ -28,7 +28,12 @@ export default function App() {
     handleDownload,
   } = useHalationCanvas({ threshold, blur, intensity, color, vignette });
 
-  const handlePresetSelect = ({ threshold: t, blur: b, intensity: i, color: c }) => {
+  const handlePresetSelect = ({
+    threshold: t,
+    blur: b,
+    intensity: i,
+    color: c,
+  }) => {
     setThreshold(t);
     setBlur(b);
     setIntensity(i);
@@ -81,6 +86,8 @@ export default function App() {
       </header>
 
       <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
+        <CanvasPreview canvasRef={canvasRef} imageLoaded={imageLoaded} />
+
         <Sidebar
           // upload
           dragging={dragging}
@@ -105,8 +112,6 @@ export default function App() {
           imageLoaded={imageLoaded}
           onDownload={handleDownload}
         />
-
-        <CanvasPreview canvasRef={canvasRef} imageLoaded={imageLoaded} />
       </div>
     </div>
   );

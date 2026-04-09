@@ -2,6 +2,7 @@ import { SliderControl } from "./SliderControl";
 import { UploadZone } from "./UploadZone";
 import { PresetList } from "./PresetList";
 import { hexToRgb, rgbToHex } from "../utils/color";
+import "./Sidebar.css";
 
 export function Sidebar({
   // upload
@@ -28,18 +29,7 @@ export function Sidebar({
   onDownload,
 }) {
   return (
-    <aside
-      style={{
-        width: "260px",
-        minWidth: "220px",
-        background: "#111",
-        borderRight: "1px solid #1e0e0e",
-        padding: "32px 24px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "28px",
-      }}
-    >
+    <aside className="sidebar">
       <UploadZone
         dragging={dragging}
         onDragOver={onDragOver}
