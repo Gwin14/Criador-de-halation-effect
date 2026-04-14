@@ -1,0 +1,35 @@
+.preset-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preset-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9a7070;
+}
+
+.preset-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.preset-button {
+  background: transparent;
+  border: 1px solid #2a1a1a;
+  color: #c0a090;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: left;
+  border-radius: 3px;
+  transition: all 0.15s;
+}
+
+.preset-button:hover {
+  border-color: #ff4422;
+  color: #ff4422;
+}

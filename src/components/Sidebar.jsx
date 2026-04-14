@@ -29,7 +29,7 @@ export function Sidebar({
 }) {
   return (
     <aside className="sidebar">
-      <div style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
+      <div className="sidebar-controls">
         <SliderControl
           label="Threshold"
           hint="Luzes afetadas"
@@ -74,105 +74,40 @@ export function Sidebar({
         />
 
         {/* Color picker */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "#9a7070",
-              }}
-            >
-              Cor
-            </span>
-            <span style={{ fontSize: "11px", color: "#6a5050" }}>
-              halogênico
-            </span>
+        <div className="color-picker">
+          <div className="color-picker-header">
+            <span className="color-label">Cor</span>
+            <span className="color-hint">halogênico</span>
           </div>
           <input
             type="color"
             value={rgbToHex(color)}
             onChange={(e) => onColorChange(hexToRgb(e.target.value))}
-            style={{
-              width: "100%",
-              height: "36px",
-              border: "1px solid #2a1a1a",
-              borderRadius: "3px",
-              cursor: "pointer",
-              background: "none",
-              padding: "2px",
-            }}
+            className="color-input"
           />
         </div>
       </div>
 
       <PresetList onSelect={onPresetSelect} />
 
-      <div style={{ marginTop: "auto", display: "flex", gap: "10px" }}>
+      <div className="sidebar-buttons">
         <button
           onClick={onToggleOriginal}
-          style={{
-            flex: 1,
-            background: imageLoaded
-              ? showOriginal
-                ? "#4a4038"
-                : "#2a1a1a"
-              : "#2a1a1a",
-            color: imageLoaded ? "#fff" : "#4a3030",
-            border: "none",
-            padding: "12px",
-            cursor: imageLoaded ? "pointer" : "default",
-            fontSize: "13px",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            borderRadius: "3px",
-            transition: "background 0.2s",
-          }}
+          className={`sidebar-button toggle-original ${showOriginal ? "active" : ""}`}
           disabled={!imageLoaded}
         >
           {showOriginal ? "Ver com efeito" : "Ver sem efeito"}
         </button>
         <button
           onClick={onDownload}
-          style={{
-            flex: 1,
-            background: imageLoaded ? "#ff4422" : "#2a1a1a",
-            color: imageLoaded ? "#fff" : "#4a3030",
-            border: "none",
-            padding: "12px",
-            cursor: imageLoaded ? "pointer" : "default",
-            fontSize: "13px",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            borderRadius: "3px",
-            transition: "background 0.2s",
-          }}
+          className="sidebar-button"
           disabled={!imageLoaded}
         >
           Baixar Imagem
         </button>
         <button
           onClick={clearImage}
-          style={{
-            flex: 1,
-            background: imageLoaded ? "#ff4422" : "#2a1a1a",
-            color: imageLoaded ? "#fff" : "#4a3030",
-            border: "none",
-            padding: "12px",
-            cursor: imageLoaded ? "pointer" : "default",
-            fontSize: "13px",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            borderRadius: "3px",
-            transition: "background 0.2s",
-          }}
+          className="sidebar-button"
           disabled={!imageLoaded}
         >
           <FiTrash2 />

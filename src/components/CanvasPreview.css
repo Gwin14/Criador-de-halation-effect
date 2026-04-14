@@ -11,6 +11,11 @@
   right: 0;
   bottom: 0;
   animation: fadeGrow2 0.5s ease forwards;
+  width: 100vw;
+}
+
+.canvas-preview.loaded {
+  width: 70vw;
 }
 
 .placeholder {

@@ -1,0 +1,14 @@
+.app {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #f0e8e0;
+  font-family: "Georgia", "Times New Roman", serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}

@@ -11,16 +11,7 @@ export function CanvasPreview({
   onFile,
 }) {
   return (
-    <main
-      className="canvas-preview"
-      style={{
-        width: imageLoaded
-          ? window.innerWidth <= 768
-            ? "100vw"
-            : "70vw"
-          : "100vw",
-      }}
-    >
+    <main className={`canvas-preview ${imageLoaded ? "loaded" : ""}`}>
       {!imageLoaded && (
         <UploadZone
           dragging={dragging}

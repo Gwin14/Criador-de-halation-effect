@@ -12,6 +12,89 @@
   animation: slideLeft 0.5s ease forwards;
 }
 
+.sidebar-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.color-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.color-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9a7070;
+}
+
+.color-hint {
+  font-size: 11px;
+  color: #6a5050;
+}
+
+.color-input {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #2a1a1a;
+  border-radius: 3px;
+  cursor: pointer;
+  background: none;
+  padding: 2px;
+}
+
+.sidebar-buttons {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.sidebar-button {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.sidebar-button:disabled {
+  background: #2a1a1a;
+  color: #4a3030;
+  cursor: default;
+}
+
+.sidebar-button:not(:disabled) {
+  background: #ff4422;
+  color: #fff;
+  cursor: pointer;
+}
+
+.toggle-original:disabled {
+  background: #2a1a1a;
+  color: #4a3030;
+}
+
+.toggle-original:not(:disabled) {
+  background: #2a1a1a;
+  color: #fff;
+}
+
+.toggle-original.active {
+  background: #4a4038;
+}
+
 @media (max-width: 768px) {
   .sidebar {
     position: relative;

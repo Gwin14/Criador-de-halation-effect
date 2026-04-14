@@ -9,6 +9,7 @@ import {
   DEFAULT_COLOR,
   DEFAULT_VIGNETTE,
 } from "./constants/halation";
+import "./App.css";
 
 export default function App() {
   const [threshold, setThreshold] = useState(DEFAULT_THRESHOLD);
@@ -44,17 +45,8 @@ export default function App() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#0a0a0a",
-        color: "#f0e8e0",
-        fontFamily: "'Georgia', 'Times New Roman', serif",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
+    <div className="app">
+      <div className="app-content">
         <CanvasPreview
           canvasRef={canvasRef}
           imageLoaded={imageLoaded}
