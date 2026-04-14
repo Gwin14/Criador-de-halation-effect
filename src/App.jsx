@@ -20,6 +20,7 @@ export default function App() {
   const {
     canvasRef,
     imageLoaded,
+    clearImage,
     dragging,
     handleFile,
     handleDrop,
@@ -52,15 +53,17 @@ export default function App() {
       }}
     >
       <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
-        <CanvasPreview canvasRef={canvasRef} imageLoaded={imageLoaded} />
-
-        <Sidebar
-          // upload
+        <CanvasPreview
+          canvasRef={canvasRef}
+          imageLoaded={imageLoaded}
           dragging={dragging}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           onFile={handleFile}
+        />
+
+        <Sidebar
           // sliders
           threshold={threshold}
           blur={blur}
@@ -76,6 +79,7 @@ export default function App() {
           onPresetSelect={handlePresetSelect}
           // download
           imageLoaded={imageLoaded}
+          clearImage={clearImage}
           onDownload={handleDownload}
         />
       </div>

@@ -3,14 +3,9 @@ import { UploadZone } from "./UploadZone";
 import { PresetList } from "./PresetList";
 import { hexToRgb, rgbToHex } from "../utils/color";
 import "./Sidebar.css";
+import { FiTrash2 } from "react-icons/fi";
 
 export function Sidebar({
-  // upload
-  dragging,
-  onDragOver,
-  onDragLeave,
-  onDrop,
-  onFile,
   // sliders
   threshold,
   blur,
@@ -26,18 +21,11 @@ export function Sidebar({
   onPresetSelect,
   // download
   imageLoaded,
+  clearImage,
   onDownload,
 }) {
   return (
     <aside className="sidebar">
-      <UploadZone
-        dragging={dragging}
-        onDragOver={onDragOver}
-        onDragLeave={onDragLeave}
-        onDrop={onDrop}
-        onFile={onFile}
-      />
-
       <div style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
         <SliderControl
           label="Threshold"
@@ -141,6 +129,9 @@ export function Sidebar({
         }}
       >
         Baixar Imagem
+      </button>
+      <button onClick={clearImage}>
+        <FiTrash2 />
       </button>
     </aside>
   );

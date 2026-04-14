@@ -50,7 +50,7 @@ export function SliderControl({
           cursor: "pointer",
         }}
       />
-      <span style={{ fontSize: "10px", color: "#4a3030" }}>{hint}</span>
+      <span style={{ fontSize: "10px", color: "#dccaca" }}>{hint}</span>
     </div>
   );
 }

@@ -1,13 +1,25 @@
 import "./CanvasPreview.css";
+import { UploadZone } from "./UploadZone";
 
-export function CanvasPreview({ canvasRef, imageLoaded }) {
+export function CanvasPreview({
+  canvasRef,
+  imageLoaded,
+  dragging,
+  onDragOver,
+  onDragLeave,
+  onDrop,
+  onFile,
+}) {
   return (
     <main className="canvas-preview">
       {!imageLoaded && (
-        <div className="placeholder">
-          <div className="placeholder-circle" />
-          <span className="placeholder-text">Carregue uma foto</span>
-        </div>
+        <UploadZone
+          dragging={dragging}
+          onDragOver={onDragOver}
+          onDragLeave={onDragLeave}
+          onDrop={onDrop}
+          onFile={onFile}
+        />
       )}
 
       <canvas

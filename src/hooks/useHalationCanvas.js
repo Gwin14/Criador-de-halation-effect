@@ -107,6 +107,17 @@ export function useHalationCanvas({
     a.click();
   }, [threshold, blur, intensity, color, vignette]);
 
+  const clearImage = useCallback(() => {
+    if (canvasRef.current) {
+      const ctx = canvasRef.current.getContext("2d");
+      if (ctx) {
+        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+      }
+    }
+    imgRef.current = null;
+    setImageLoaded(false);
+  }, []);
+
   return {
     canvasRef,
     imageLoaded,
@@ -116,5 +127,6 @@ export function useHalationCanvas({
     handleDragOver,
     handleDragLeave,
     handleDownload,
+    clearImage,
   };
 }
