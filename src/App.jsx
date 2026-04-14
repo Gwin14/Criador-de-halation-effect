@@ -51,40 +51,6 @@ export default function App() {
         flexDirection: "column",
       }}
     >
-      {/* Header */}
-      <header
-        style={{
-          borderBottom: "1px solid #2a1a1a",
-          padding: "24px 40px",
-          display: "flex",
-          alignItems: "baseline",
-          gap: "16px",
-          background: "linear-gradient(180deg, #1a0800 0%, #0a0a0a 100%)",
-        }}
-      >
-        <h1
-          style={{
-            margin: 0,
-            fontSize: "28px",
-            fontWeight: "normal",
-            letterSpacing: "0.12em",
-            color: "#ff4422",
-            textTransform: "uppercase",
-          }}
-        >
-          Halation
-        </h1>
-        <span
-          style={{
-            fontSize: "13px",
-            color: "#6a5050",
-            letterSpacing: "0.06em",
-          }}
-        >
-          CineStill 800T · Red Film Effect
-        </span>
-      </header>
-
       <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
         <CanvasPreview canvasRef={canvasRef} imageLoaded={imageLoaded} />
 
