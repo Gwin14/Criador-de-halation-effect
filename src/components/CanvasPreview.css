@@ -10,6 +10,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  animation: fadeGrow2 0.5s ease forwards;
 }
 
 .placeholder {
@@ -49,5 +50,7 @@
 @media (max-width: 768px) {
   .canvas-preview {
     position: relative;
+
+    animation: fadeGrow2 0.5s ease forwards;
   }
 }

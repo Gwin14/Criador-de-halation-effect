@@ -15,8 +15,10 @@ export function CanvasPreview({
       className="canvas-preview"
       style={{
         width: imageLoaded
-          ? (window.innerWidth <= 768 ? "100vw" : "70vw")
-          : "100vw"
+          ? window.innerWidth <= 768
+            ? "100vw"
+            : "70vw"
+          : "100vw",
       }}
     >
       {!imageLoaded && (
