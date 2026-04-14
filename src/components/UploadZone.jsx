@@ -1,4 +1,10 @@
-export function UploadZone({ dragging, onDragOver, onDragLeave, onDrop, onFile }) {
+export function UploadZone({
+  dragging,
+  onDragOver,
+  onDragLeave,
+  onDrop,
+  onFile,
+}) {
   return (
     <label
       onDragOver={onDragOver}
@@ -18,7 +24,6 @@ export function UploadZone({ dragging, onDragOver, onDragLeave, onDrop, onFile }
         gap: "8px",
       }}
     >
-      <span style={{ fontSize: "24px" }}>📷</span>
       <span
         style={{
           fontSize: "12px",

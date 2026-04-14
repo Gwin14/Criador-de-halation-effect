@@ -63,25 +63,27 @@ export default function App() {
           onFile={handleFile}
         />
 
-        <Sidebar
-          // sliders
-          threshold={threshold}
-          blur={blur}
-          intensity={intensity}
-          vignette={vignette}
-          color={color}
-          onThresholdChange={setThreshold}
-          onBlurChange={setBlur}
-          onIntensityChange={setIntensity}
-          onVignetteChange={setVignette}
-          onColorChange={setColor}
-          // presets
-          onPresetSelect={handlePresetSelect}
-          // download
-          imageLoaded={imageLoaded}
-          clearImage={clearImage}
-          onDownload={handleDownload}
-        />
+        {imageLoaded && (
+          <Sidebar
+            // sliders
+            threshold={threshold}
+            blur={blur}
+            intensity={intensity}
+            vignette={vignette}
+            color={color}
+            onThresholdChange={setThreshold}
+            onBlurChange={setBlur}
+            onIntensityChange={setIntensity}
+            onVignetteChange={setVignette}
+            onColorChange={setColor}
+            // presets
+            onPresetSelect={handlePresetSelect}
+            // download
+            imageLoaded={imageLoaded}
+            clearImage={clearImage}
+            onDownload={handleDownload}
+          />
+        )}
       </div>
     </div>
   );

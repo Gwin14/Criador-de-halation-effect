@@ -130,7 +130,23 @@ export function Sidebar({
       >
         Baixar Imagem
       </button>
-      <button onClick={clearImage}>
+      <button
+        onClick={clearImage}
+        style={{
+          marginTop: "auto",
+          background: imageLoaded ? "#ff4422" : "#2a1a1a",
+          color: imageLoaded ? "#fff" : "#4a3030",
+          border: "none",
+          padding: "12px",
+          cursor: imageLoaded ? "pointer" : "default",
+          fontSize: "13px",
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          borderRadius: "3px",
+          transition: "background 0.2s",
+          marginLeft: "10px",
+        }}
+      >
         <FiTrash2 />
       </button>
     </aside>
