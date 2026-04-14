@@ -96,7 +96,7 @@ export function Sidebar({
           className={`sidebar-button toggle-original ${showOriginal ? "active" : ""}`}
           disabled={!imageLoaded}
         >
-          {showOriginal ? "Ver com efeito" : "Ver sem efeito"}
+          {showOriginal ? "Ver com efeito" : "Ver original"}
         </button>
         <button
           onClick={onDownload}

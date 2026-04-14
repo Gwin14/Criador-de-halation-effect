@@ -67,6 +67,7 @@
   text-transform: uppercase;
   border-radius: 3px;
   transition: background 0.2s;
+  margin-top: 10px;
 }
 
 .sidebar-button:disabled {
@@ -76,7 +77,7 @@
 }
 
 .sidebar-button:not(:disabled) {
-  background: #ff4422;
+  background: #63281d;
   color: #fff;
   cursor: pointer;
 }
