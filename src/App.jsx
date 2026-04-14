@@ -20,6 +20,8 @@ export default function App() {
   const {
     canvasRef,
     imageLoaded,
+    showOriginal,
+    setShowOriginal,
     clearImage,
     dragging,
     handleFile,
@@ -78,6 +80,9 @@ export default function App() {
             onColorChange={setColor}
             // presets
             onPresetSelect={handlePresetSelect}
+            // original preview
+            showOriginal={showOriginal}
+            onToggleOriginal={() => setShowOriginal((prev) => !prev)}
             // download
             imageLoaded={imageLoaded}
             clearImage={clearImage}

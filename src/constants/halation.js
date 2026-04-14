@@ -2,7 +2,7 @@ export const DEFAULT_THRESHOLD = 200;
 export const DEFAULT_BLUR = 18;
 export const DEFAULT_INTENSITY = 0.7;
 export const DEFAULT_COLOR = { r: 255, g: 30, b: 20 };
-export const DEFAULT_VIGNETTE = 0.72;
+export const DEFAULT_VIGNETTE = 0;
 
 export const PRESETS = [
   {

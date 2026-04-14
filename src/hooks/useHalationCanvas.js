@@ -16,12 +16,33 @@ export function useHalationCanvas({
 }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [dragging, setDragging] = useState(false);
+  const [showOriginal, setShowOriginal] = useState(false);
 
   const imgRef = useRef(null);
   const canvasRef = useRef(null);
 
+  const drawOriginal = useCallback(() => {
+    if (!imgRef.current || !canvasRef.current) return;
+    const ctx = canvasRef.current.getContext("2d");
+    if (!ctx) return;
+
+    ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    ctx.drawImage(
+      imgRef.current,
+      0,
+      0,
+      canvasRef.current.width,
+      canvasRef.current.height,
+    );
+  }, []);
+
   const redraw = useCallback(() => {
     if (!imgRef.current || !canvasRef.current) return;
+    if (showOriginal) {
+      drawOriginal();
+      return;
+    }
+
     applyHalation(
       canvasRef.current,
       imgRef.current,
@@ -31,7 +52,7 @@ export function useHalationCanvas({
       color,
       vignette,
     );
-  }, [threshold, blur, intensity, color, vignette]);
+  }, [threshold, blur, intensity, color, vignette, showOriginal, drawOriginal]);
 
   useEffect(() => {
     redraw();
@@ -51,6 +72,7 @@ export function useHalationCanvas({
         canvasRef.current.width = img.naturalWidth * scale;
         canvasRef.current.height = img.naturalHeight * scale;
 
+        setShowOriginal(false);
         setImageLoaded(true);
         redraw();
         URL.revokeObjectURL(url);
@@ -122,6 +144,8 @@ export function useHalationCanvas({
     canvasRef,
     imageLoaded,
     dragging,
+    showOriginal,
+    setShowOriginal,
     handleFile,
     handleDrop,
     handleDragOver,

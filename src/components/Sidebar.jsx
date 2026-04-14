@@ -19,6 +19,9 @@ export function Sidebar({
   onColorChange,
   // presets
   onPresetSelect,
+  // original preview
+  showOriginal,
+  onToggleOriginal,
   // download
   imageLoaded,
   clearImage,
@@ -112,43 +115,69 @@ export function Sidebar({
 
       <PresetList onSelect={onPresetSelect} />
 
-      <button
-        onClick={onDownload}
-        style={{
-          marginTop: "auto",
-          background: imageLoaded ? "#ff4422" : "#2a1a1a",
-          color: imageLoaded ? "#fff" : "#4a3030",
-          border: "none",
-          padding: "12px",
-          cursor: imageLoaded ? "pointer" : "default",
-          fontSize: "13px",
-          letterSpacing: "0.08em",
-          textTransform: "uppercase",
-          borderRadius: "3px",
-          transition: "background 0.2s",
-        }}
-      >
-        Baixar Imagem
-      </button>
-      <button
-        onClick={clearImage}
-        style={{
-          marginTop: "auto",
-          background: imageLoaded ? "#ff4422" : "#2a1a1a",
-          color: imageLoaded ? "#fff" : "#4a3030",
-          border: "none",
-          padding: "12px",
-          cursor: imageLoaded ? "pointer" : "default",
-          fontSize: "13px",
-          letterSpacing: "0.08em",
-          textTransform: "uppercase",
-          borderRadius: "3px",
-          transition: "background 0.2s",
-          marginLeft: "10px",
-        }}
-      >
-        <FiTrash2 />
-      </button>
+      <div style={{ marginTop: "auto", display: "flex", gap: "10px" }}>
+        <button
+          onClick={onToggleOriginal}
+          style={{
+            flex: 1,
+            background: imageLoaded
+              ? showOriginal
+                ? "#4a4038"
+                : "#2a1a1a"
+              : "#2a1a1a",
+            color: imageLoaded ? "#fff" : "#4a3030",
+            border: "none",
+            padding: "12px",
+            cursor: imageLoaded ? "pointer" : "default",
+            fontSize: "13px",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            borderRadius: "3px",
+            transition: "background 0.2s",
+          }}
+          disabled={!imageLoaded}
+        >
+          {showOriginal ? "Ver com efeito" : "Ver sem efeito"}
+        </button>
+        <button
+          onClick={onDownload}
+          style={{
+            flex: 1,
+            background: imageLoaded ? "#ff4422" : "#2a1a1a",
+            color: imageLoaded ? "#fff" : "#4a3030",
+            border: "none",
+            padding: "12px",
+            cursor: imageLoaded ? "pointer" : "default",
+            fontSize: "13px",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            borderRadius: "3px",
+            transition: "background 0.2s",
+          }}
+          disabled={!imageLoaded}
+        >
+          Baixar Imagem
+        </button>
+        <button
+          onClick={clearImage}
+          style={{
+            flex: 1,
+            background: imageLoaded ? "#ff4422" : "#2a1a1a",
+            color: imageLoaded ? "#fff" : "#4a3030",
+            border: "none",
+            padding: "12px",
+            cursor: imageLoaded ? "pointer" : "default",
+            fontSize: "13px",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            borderRadius: "3px",
+            transition: "background 0.2s",
+          }}
+          disabled={!imageLoaded}
+        >
+          <FiTrash2 />
+        </button>
+      </div>
     </aside>
   );
 }
