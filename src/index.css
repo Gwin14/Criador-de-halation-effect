@@ -5,10 +5,13 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body html {
-  overflow: hidden;
+body,
+html {
+  overflow-x: hidden;
   overscroll-behavior-x: none;
   overscroll-behavior-y: none;
+  height: 100dvh;
+  width: 100%;
 }
 
 @keyframes fadeToTop {
